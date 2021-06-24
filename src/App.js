@@ -1,7 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
+import TodoTemplate from "components/TodoTemplate";
+import TodoInput from "components/TodoInput";
 
-function App() {
-  return <div>일정관리</div>;
+class App extends Component {
+  render() {
+    return (
+      <TodoTemplate form={<TodoInput />} />
+    );
+  }
 }
 
 export default App;

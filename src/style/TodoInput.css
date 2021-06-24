@@ -1,0 +1,28 @@
+.form {
+    display:flex;
+    width:60%;
+    margin:auto;
+}
+
+.form input {
+    flex: 1;
+    font-size:1.25rem;
+    border:none;
+    outline:none;
+    border-bottom:1px solid #ddd;
+    padding:5px 10px;
+}
+
+.add_btn {
+    padding: 0.5rem 1rem;
+    margin-left:1rem;
+    background: #2d4996;
+    color:#fff;
+    border:0;
+    cursor:pointer;
+    transition:background .2s ease-in-out;
+}
+
+.add_btn:hover {
+    background:#0c2771;
+}
