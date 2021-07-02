@@ -5,7 +5,10 @@ import TodoInput from "components/TodoInput";
 class App extends Component {
   render() {
     return (
-      <TodoTemplate form={<TodoInput />} />
+      <TodoTemplate form={<TodoInput />}>
+
+        
+      </TodoTemplate>
       
     );
   }

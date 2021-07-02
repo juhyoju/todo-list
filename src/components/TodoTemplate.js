@@ -11,12 +11,12 @@ const TodoTemplate = ( {form, children} ) => {
             <h1 className="title">
                 TASKS <strong>LIST</strong>
             </h1>
-            <section className="form_wrap">
+            <div className="form_wrap">
                 {form}
-            </section>
-            <sectoin className="todo_wrap">
+            </div>
+            <div className="todo_wrap">
                 { children }
-            </sectoin>
+            </div>
             
         </main>
     );
