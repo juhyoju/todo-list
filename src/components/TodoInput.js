@@ -27,6 +27,18 @@ const TodoInput = () => {
         onSaveTodo(todoAll);
     };
 
+    const onDeleteTodo = () => {
+        const deleteMsg = window.confirm("Are you sure you want to delete all?");
+
+        if(deleteMsg) {
+            window.localStorage.clear("todoArray");
+            setTodos([]);
+        };
+    };
+
+    
+
+
     return (
         <>
             <div className="form">
