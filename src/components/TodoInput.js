@@ -16,6 +16,10 @@ const TodoInput = ({onGetTodo}) => {
 
 
     const onAddTodo = () => {
+        if(newTodo === ""){
+            alert("⚠ 내용이 입력되지 않았습니다.");
+            return
+        }
 
         const todoAll = [...todos, {todo: newTodo}];
         setTodos(todoAll);
