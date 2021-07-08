@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "style/TodoInput.css";
 
-const TodoInput = () => {
-    const [todos, setTodos ] = useState([]);
+const TodoInput = ({onGetTodo}) => {
+
+    const [todos, setTodos] = useState(JSON.parse(onGetTodo)??[]);
     const [newTodo, setNewTodo] = useState("");
     
     const onChange = (event) => {  
@@ -13,14 +14,9 @@ const TodoInput = () => {
         window.localStorage.setItem("todoArray", JSON.stringify(newTodo));
     };   
 
-    const onGetTodo = window.localStorage.getItem("todoArray");
-    useEffect(() => {
-        if (onGetTodo) {
-            setTodos(JSON.parse(onGetTodo));
-        }
-    }, []);
 
     const onAddTodo = () => {
+
         const todoAll = [...todos, {todo: newTodo}];
         setTodos(todoAll);
         setNewTodo("");
@@ -50,7 +46,7 @@ const TodoInput = () => {
                 />
                 <button onClick={onAddTodo} className="add_btn">저장하기</button>
             </div>
-            <div style={{margin:50}}>{onGetTodo}</div>
+            {/* <div style={{margin:50}}>{onGetTodo}</div> */}
             
             <button onClick={onDeleteTodo} className="add_btn">전체 삭제</button>
 
