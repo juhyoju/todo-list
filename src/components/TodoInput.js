@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "style/TodoInput.css";
 
-const TodoInput = ({onGetTodo}) => {
+const TodoInput = ({todos, setTodos}) => {
 
-    const [todos, setTodos] = useState(JSON.parse(onGetTodo)??[]);
     const [newTodo, setNewTodo] = useState("");
     
     const onChange = (event) => {  
@@ -13,7 +12,6 @@ const TodoInput = ({onGetTodo}) => {
     const onSaveTodo = (newTodo) => {
         window.localStorage.setItem("todoArray", JSON.stringify(newTodo));
     };   
-
 
     const onAddTodo = () => {
         if(newTodo === ""){
@@ -36,9 +34,6 @@ const TodoInput = ({onGetTodo}) => {
         };
     };
 
-    
-
-
     return (
         <>
             <div className="form">
@@ -50,7 +45,6 @@ const TodoInput = ({onGetTodo}) => {
                 />
                 <button onClick={onAddTodo} className="add_btn">저장하기</button>
             </div>
-            {/* <div style={{margin:50}}>{onGetTodo}</div> */}
             
             <button onClick={onDeleteTodo} className="add_btn">전체 삭제</button>
 
