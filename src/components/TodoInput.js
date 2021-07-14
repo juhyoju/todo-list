@@ -25,7 +25,7 @@ const TodoInput = ({todos, setTodos}) => {
         onSaveTodo(todoAll);
     };
 
-    const onDeleteTodo = () => {
+    const onDeleteAll = () => {
         const deleteMsg = window.confirm("Are you sure you want to delete all?");
 
         if(deleteMsg) {
@@ -46,7 +46,7 @@ const TodoInput = ({todos, setTodos}) => {
                 <button onClick={onAddTodo} className="add_btn">저장하기</button>
             </div>
             
-            <button onClick={onDeleteTodo} className="add_btn">전체 삭제</button>
+            <button onClick={onDeleteAll} className="add_btn">전체 삭제</button>
 
         </>
     );
