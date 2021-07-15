@@ -26,7 +26,7 @@ const TodoInput = ({todos, setTodos}) => {
     };
 
     const onKeyPress = (event) => {
-        if(event.key == "Enter") {
+        if(event.key === "Enter") {
             onAddTodo();
         }
     }
