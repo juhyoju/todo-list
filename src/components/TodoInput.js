@@ -25,6 +25,12 @@ const TodoInput = ({todos, setTodos}) => {
         onSaveTodo(todoAll);
     };
 
+    const onKeyPress = (event) => {
+        if(event.key == "Enter") {
+            onAddTodo();
+        }
+    }
+
     const onDeleteAll = () => {
         const deleteMsg = window.confirm("Are you sure you want to delete all?");
 
@@ -42,6 +48,7 @@ const TodoInput = ({todos, setTodos}) => {
                     value={newTodo}
                     onChange={onChange}
                     placeholder="things to do"
+                    onKeyPress={onKeyPress}
                 />
                 <button onClick={onAddTodo} className="add_btn">저장하기</button>
             </div>
