@@ -22,7 +22,7 @@ const TodoTemplate = () => {
                 <TodoInput  todos={todos} setTodos={setTodos} />
             </div>
             <div className="todo_wrap">
-                <TodoList todos={todos} />
+                <TodoList todos={todos} setTodos={setTodos} />
             </div>
             
         </main>
