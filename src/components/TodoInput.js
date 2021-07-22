@@ -19,7 +19,7 @@ const TodoInput = ({todos, setTodos}) => {
             return
         }
 
-        const todoAll = [...todos, {todo: newTodo, id: Date.now()}];
+        const todoAll = [...todos, {todo: newTodo, id: Date.now(), isDone: false}];
         setTodos(todoAll);
         setNewTodo("");
         onSaveTodo(todoAll);
