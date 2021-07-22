@@ -11,7 +11,9 @@ const TodoTemplate = () => {
     const onGetTodo = window.localStorage.getItem("todoArray");
     const [todos, setTodos] = useState(JSON.parse(onGetTodo)??[]);
     
-
+    const onDeleteTodo = id => { 
+        setTodos(todos.filter(todos => todos.id !== id));
+    };
 
     return ( 
         <main className="todo_template">
@@ -22,7 +24,7 @@ const TodoTemplate = () => {
                 <TodoInput  todos={todos} setTodos={setTodos} />
             </div>
             <div className="todo_wrap">
-                <TodoList todos={todos} setTodos={setTodos} />
+                <TodoList todos={todos} onDelete={onDeleteTodo} />
             </div>
             
         </main>
