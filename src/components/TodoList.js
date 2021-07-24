@@ -2,14 +2,22 @@ import React from "react";
 import "style/TodoList.css";
 
 
-const TodoList = ({todos, onDelete}) => {
+const TodoList = ({todos, onDelete, onUpdateStatus}) => {
 
     const Todo = ({ todo: {id, todo, isDone}}) => {
         return (
             <li>
-                <input type="checkbox" checked={isDone} />
-                <span>{todo}</span>
-                <button onClick={() => onDelete(id)}>DELETE</button>
+                <input 
+                    type="checkbox" 
+                    checked={isDone} 
+                    onChange={() => onUpdateStatus(id)} 
+                />
+                <span>
+                    {todo} 
+                    {isDone ? "(완료)" : "(진행중)"}
+                </span>
+                
+                <button onClick={() => onDelete(id)} className="add_btn">삭제</button>
             </li>
         )
     }
