@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "style/TodoTemplate.css";
 import TodoInput from "./TodoInput";
+import TodoItem from "./TodoItem";
 import TodoList from "./TodoList";
 
 
@@ -35,7 +36,15 @@ const TodoTemplate = () => {
                 <TodoInput  todos={todos} setTodos={setTodos} />
             </div>
             <div className="todo_wrap">
-                <TodoList todos={todos} onDelete={onDeleteTodoItem} onUpdateStatus={onIsDoneTodo} />
+                <TodoList
+                    todos={todos} 
+                    onDelete={onDeleteTodoItem}
+                    onUpdateStatus={onIsDoneTodo}
+                >
+                    <TodoItem 
+                        onDelete={onDeleteTodoItem} 
+                        onUpdateStatus={onIsDoneTodo} />
+                </TodoList>
             </div>
             
         </main>
