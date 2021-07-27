@@ -26,6 +26,8 @@ const TodoTemplate = () => {
             )
         );
     };
+    
+    const onEditTodo = () => {}
 
     return ( 
         <main className="todo_template">
@@ -43,7 +45,9 @@ const TodoTemplate = () => {
                 >
                     <TodoItem 
                         onDelete={onDeleteTodoItem} 
-                        onUpdateStatus={onIsDoneTodo} />
+                        onUpdateStatus={onIsDoneTodo} 
+                        onModifyTodo={onEditTodo}
+                    />
                 </TodoList>
             </div>
             

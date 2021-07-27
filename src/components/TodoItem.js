@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoItem = ({onDelete, onUpdateStatus, todo: {id, todo, isDone}}) => {
+const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
     return (
     //<span>각 일정 렌더링함 (완료 체크박스, 삭제 등)</span>;
         <li>
@@ -15,6 +15,8 @@ const TodoItem = ({onDelete, onUpdateStatus, todo: {id, todo, isDone}}) => {
             </span>
             
             <button onClick={() => onDelete(id)} className="add_btn">삭제</button>
+
+            <button onClick={onEditTodo} className="add_btn">수정</button>
         </li>
     );
 };
