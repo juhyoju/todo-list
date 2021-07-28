@@ -3,7 +3,7 @@ import React from "react";
 const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
     return (
     //<span>각 일정 렌더링함 (완료 체크박스, 삭제 등)</span>;
-        <li>
+        <li className={isDone ? "done" : "ing"}>
             <input 
                 type="checkbox" 
                 checked={isDone} 
@@ -11,7 +11,7 @@ const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone
             />
             <span>
                 {todo} 
-                {isDone ? "(완료)" : "(진행중)"}
+                {/* {isDone ? "(완료)" : "(진행중)"} */}
             </span>
             
             <button onClick={() => onDelete(id)} className="add_btn">삭제</button>

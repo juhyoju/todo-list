@@ -19,30 +19,21 @@ const TodoTemplate = () => {
         window.localStorage.setItem("todoArray", JSON.stringify(onDeleteTodos));
     };
 
-    const onIsDoneTodo = id => {
-        setTodos(
-            todos.map(todos =>
-                todos.id === id ? { ...todos, isDone: !todos.isDone } : todos
-            )
-        );
+    const onIsDoneItem = id => {
+        const onIsDoneTodo = todos.map(todos =>
+            todos.id === id ? { ...todos, isDone: !todos.isDone } : todos
+        )
+        setTodos(onIsDoneTodo);
+        window.localStorage.setItem("todoArray", JSON.stringify(onIsDoneTodo));
     };
     
-    const Today = new Date();
-    const DateString = Today.toLocaleDateString('ko-KR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday : 'long'
-    });
-    
-    
+    const onEditTodo = () => {}
 
     return ( 
         <main className="todo_template">
             <h1 className="title">
                 TASKS <strong>LIST</strong>
             </h1>
-            <p style={{textAlign:'center'}}>{DateString}</p>
             <div className="form_wrap">
                 <TodoInput  todos={todos} setTodos={setTodos} />
             </div>
@@ -50,11 +41,12 @@ const TodoTemplate = () => {
                 <TodoList
                     todos={todos} 
                     onDelete={onDeleteTodoItem}
-                    onUpdateStatus={onIsDoneTodo}
+                    onUpdateStatus={onIsDoneItem}
                 >
                     <TodoItem 
                         onDelete={onDeleteTodoItem} 
-                        onUpdateStatus={onIsDoneTodo} 
+                        onUpdateStatus={onIsDoneItem} 
+                        onModifyTodo={onEditTodo}
                     />
                 </TodoList>
             </div>

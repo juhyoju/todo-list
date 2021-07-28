@@ -19,3 +19,12 @@ ul, li, ol {
 .todoList li:not(:last-child) {
     margin-bottom:15px;
 }
+
+.todoList li.done {
+    background: #f5f5f5;
+    color: #aaa
+}
+
+.todoList li.done span {
+    text-decoration: line-through;
+}
