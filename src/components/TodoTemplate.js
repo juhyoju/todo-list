@@ -27,13 +27,22 @@ const TodoTemplate = () => {
         );
     };
     
-    const onEditTodo = () => {}
+    const Today = new Date();
+    const DateString = Today.toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday : 'long'
+    });
+    
+    
 
     return ( 
         <main className="todo_template">
             <h1 className="title">
                 TASKS <strong>LIST</strong>
             </h1>
+            <p style={{textAlign:'center'}}>{DateString}</p>
             <div className="form_wrap">
                 <TodoInput  todos={todos} setTodos={setTodos} />
             </div>
@@ -46,7 +55,6 @@ const TodoTemplate = () => {
                     <TodoItem 
                         onDelete={onDeleteTodoItem} 
                         onUpdateStatus={onIsDoneTodo} 
-                        onModifyTodo={onEditTodo}
                     />
                 </TodoList>
             </div>
