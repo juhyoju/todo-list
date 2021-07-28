@@ -25,6 +25,6 @@ ul, li, ol {
     color: #aaa
 }
 
-.todoList li.done span {
+.todoList li.done .todoText {
     text-decoration: line-through;
 }

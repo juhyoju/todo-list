@@ -14,13 +14,21 @@
 }
 
 .add_btn {
-    padding: 0.5rem 1rem;
-    margin-left:1rem;
+    margin-left:0.25rem;
     background: #2d4996;
     color:#fff;
     border:0;
     cursor:pointer;
     transition:background .2s ease-in-out;
+    padding: 0.5rem 1rem;
+}
+
+.btn_right .add_btn {
+    padding:0;
+    width:32px;
+    height:32px;
+    border-radius:5px;
+    display:inline-block;
 }
 
 .add_btn:hover {

@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
     return (
@@ -9,16 +11,21 @@ const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone
                 checked={isDone} 
                 onChange={() => onUpdateStatus(id)} 
             />
-            <span>
+            <span className="todoText">
                 {todo} 
                 {/* {isDone ? "(완료)" : "(진행중)"} */}
             </span>
             
-            <button onClick={() => onDelete(id)} className="add_btn">삭제</button>
-
-            <button onClick={onEditTodo} className="add_btn">수정</button>
+            <span className="btn_right">
+                <button onClick={onEditTodo} className="add_btn">
+                    <FontAwesomeIcon icon={faEdit} />
+                </button>
+                
+                <button onClick={() => onDelete(id)} className="add_btn">
+                    <FontAwesomeIcon icon={faTimes} />
+                </button>
+            </span>
         </li>
     );
 };
-
 export default TodoItem;   
