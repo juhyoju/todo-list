@@ -1,14 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 
 
 const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
-    const [edited, setEdited] = useState(false);
-    const onClickEditButton = () => { 
-        setEdited(true); 
-    };
     return (
     //<span>각 일정 렌더링함 (완료 체크박스, 삭제 등)</span>;
         <li className={isDone ? "done" : "ing"}>
@@ -23,7 +19,7 @@ const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone
             </span>
             
             <span className="btn_right">
-                <button onClick={onEditTodo} className="add_btn" onClick={onClickEditButton}>
+                <button onClick={onEditTodo} className="add_btn">
                     <FontAwesomeIcon icon={faEdit} />
                 </button>
                 

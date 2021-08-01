@@ -1,44 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "style/TodoInput.css";
 
-const TodoInput = ({todos, setTodos}) => {
-
-    const [newTodo, setNewTodo] = useState("");
-    
-    const onChange = (event) => {  
-        setNewTodo(event.target.value);
-    };
-
-    const onSaveTodo = (newTodo) => {
-        window.localStorage.setItem("todoArray", JSON.stringify(newTodo));
-    };   
-
-    const onAddTodo = () => {
-        if(newTodo === ""){
-            alert("⚠ 내용이 입력되지 않았습니다.");
-            return
-        }
-
-        const todoAll = [...todos, {todo: newTodo, id: Date.now(), isDone: false}];
-        setTodos(todoAll);
-        setNewTodo("");
-        onSaveTodo(todoAll);
-    };
-
-    const onKeyPress = (event) => {
-        if(event.key === "Enter") {
-            onAddTodo();
-        }
-    }
-
-    const onDeleteAll = () => {
-        const deleteMsg = window.confirm("Are you sure you want to delete all?");
-
-        if(deleteMsg) {
-            window.localStorage.clear("todoArray");
-            setTodos([]);
-        };
-    };
+const TodoInput = ({newTodo, onChange, onKeyPress, onAddTodo, onDeleteAll}) => {
 
     return (
         <>
@@ -54,7 +17,6 @@ const TodoInput = ({todos, setTodos}) => {
             </div>
             
             <button onClick={onDeleteAll} className="add_btn">전체 삭제</button>
-
         </>
     );
 };
