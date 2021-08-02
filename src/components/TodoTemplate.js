@@ -89,10 +89,10 @@ const TodoTemplate = () => {
                     onDelete={onDeleteTodoItem}
                     onUpdateStatus={onIsDoneItem}
                 >
-                    <TodoItem 
+                <TodoItem 
                         onDelete={onDeleteTodoItem} 
                         onUpdateStatus={onIsDoneItem} 
-ㄴ                    />
+                />
                 </TodoList>
             </div>
             
