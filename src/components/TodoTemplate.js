@@ -35,7 +35,7 @@ const TodoTemplate = () => {
     }
 
     const onDeleteAll = () => {
-        const deleteMsg = window.confirm("Are you sure you want to delete all?");
+        const deleteMsg = window.confirm("Todo 항목을 모두 삭제하십니까?");
 
         if(deleteMsg) {
             window.localStorage.clear("todoArray");
@@ -47,9 +47,13 @@ const TodoTemplate = () => {
     const [todos, setTodos] = useState(JSON.parse(onGetTodo)??[]);
     
     const onDeleteTodoItem = id => { 
-        const onDeleteTodos = todos.filter(todos => todos.id !== id);
-        setTodos(onDeleteTodos);
-        window.localStorage.setItem("todoArray", JSON.stringify(onDeleteTodos));
+        const deleteMsg = window.confirm("이 항목을 삭제하십니까?");
+
+        if(deleteMsg) {
+            const onDeleteTodos = todos.filter(todos => todos.id !== id);
+            setTodos(onDeleteTodos);
+            window.localStorage.setItem("todoArray", JSON.stringify(onDeleteTodos));
+        };
     };
 
     const onIsDoneItem = id => {
@@ -89,10 +93,10 @@ const TodoTemplate = () => {
                     onDelete={onDeleteTodoItem}
                     onUpdateStatus={onIsDoneItem}
                 >
-                    <TodoItem 
+                <TodoItem 
                         onDelete={onDeleteTodoItem} 
                         onUpdateStatus={onIsDoneItem} 
-ㄴ                    />
+                />
                 </TodoList>
             </div>
             
