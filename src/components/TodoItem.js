@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useRef} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const TodoItem = ({onDelete, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
+const TodoItem = ({ref, onDelete, isDragging, onUpdateStatus, onEditTodo, todo: {id, todo, isDone}}) => {
+    
+
     return (
     //<span>각 일정 렌더링함 (완료 체크박스, 삭제 등)</span>;
-        <li className={isDone ? "done" : "ing"}>
+        <li className={isDone ? "done" : "ing"} ref={ref} isDragging={isDragging}>
             <input 
                 type="checkbox" 
                 checked={isDone} 

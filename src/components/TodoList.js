@@ -3,7 +3,7 @@ import "style/TodoList.css";
 import TodoItem from "./TodoItem";
 
 
-const TodoList = ({todos, onDelete, onUpdateStatus}) => {    
+const TodoList = ({moveCard, todos, onDelete, onUpdateStatus}) => {    
     return (
         <>
         <div className="todoList">
@@ -14,6 +14,7 @@ const TodoList = ({todos, onDelete, onUpdateStatus}) => {
                     key={todos.id} 
                     onDelete={onDelete} 
                     onUpdateStatus={onUpdateStatus} 
+                    moveCard={moveCard}
                 />
             ))}
             </ul>            
