@@ -4,9 +4,9 @@ import TodoInput from "./TodoInput";
 import TodoItem from "./TodoItem";
 import TodoList from "./TodoList";
 
-import { useDrag, useDrop } from 'react-dnd';
-import { ItemTypes } from "./dnd";
-import update from 'immutability-helper';
+// import { useDrag, useDrop } from 'react-dnd';
+// import { ItemTypes } from "./dnd";
+// import update from 'immutability-helper';
 
 const TodoTemplate = (id) => {
     // <span>UI(타이틀, children 값으로 내부에 추가할 컴포넌트)</span>
@@ -76,73 +76,7 @@ const TodoTemplate = (id) => {
         weekday : 'long'
     });
 
-    const moveCard = useCallback( // (**) Reorder an array
-    (dragIndex, hoverIndex) => {
-        const dragCard = todos[dragIndex];
 
-        setTodos(
-            update(todos, {
-                $splice: [
-                    [dragIndex, 1], // Delete
-                    [hoverIndex, 0, dragCard], // Add
-                ],
-                })
-            );
-        },
-        [todos]
-    );
-
-    const ref = useRef(null); // (*)
-
-    
-    const [, drop] = useDrop({ // (*)
-        accept: ItemTypes.CARD,
-            hover(item, monitor) {
-            if (!ref.current) {
-                return;
-            }
-        
-            const dragIndex = id;
-            const hoverIndex = id;
-
-            if (dragIndex === hoverIndex) {
-                return;
-            }        
-
-        const hoverBoundingRect = ref.current?.getBoundingClientRect();
-        const hoverMiddleY =
-            (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-        const clientOffset = monitor.getClientOffset();
-        const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-
-        if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-            return;
-        }
-
-        if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-            return;
-        }
-
-        moveCard(dragIndex, hoverIndex);
-        item.index = hoverIndex;
-        },
-    });
-
-
-//   const [{ isDragging }, drag] = useDrag({ // (*)
-//     todo: { type: ItemTypes.CARD, id },
-//     collect: monitor => ({
-//       isDragging: monitor.isDragging(),
-//     }),
-//   });
-  const [{isDragging}, drag] = useDrag({
-    type: "CARD",
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  })
-
-  drag(drop(ref)); // (*)
 
 
     return ( 
@@ -165,14 +99,14 @@ const TodoTemplate = (id) => {
                     todos={todos} 
                     onDelete={onDeleteTodoItem}
                     onUpdateStatus={onIsDoneItem}
-                    moveCard={moveCard}
+                    // moveCard={moveCard}
                 >
                 <TodoItem 
                     onDelete={onDeleteTodoItem} 
                     onUpdateStatus={onIsDoneItem} 
-                    moveCard={moveCard}
-                    isDragging={isDragging}
-                    ref={ref}
+                    // moveCard={moveCard}
+                    // isDragging={isDragging}
+                    // ref={ref}
                 />
                 </TodoList>
             </div>
