@@ -1,26 +1,23 @@
-import React from "react";
-import "style/TodoList.css";
-import TodoItem from "./TodoItem";
+import React from 'react'
+import 'style/TodoList.css'
+import TodoItem from './TodoItem/TodoItem'
 
-
-const TodoList = ({moveCard, todos, onDelete, onUpdateStatus}) => {    
+const TodoList = ({ moveCard, todos, setTodos }) => {
     return (
-        <>
-        <div className="todoList">
+        <div className='todoList'>
             <ul>
-            {todos.map(todo => (
-                <TodoItem 
-                    todo={todo} 
-                    key={todos.id} 
-                    onDelete={onDelete} 
-                    onUpdateStatus={onUpdateStatus} 
-                    moveCard={moveCard}
-                />
-            ))}
-            </ul>            
+                {todos.map(todo => (
+                    <TodoItem
+                        todos={todos}
+                        todo={todo}
+                        key={todos.id}
+                        moveCard={moveCard}
+                        setTodos={setTodos}
+                    />
+                ))}
+            </ul>
         </div>
-        </>
     )
-};
+}
 
-export default TodoList;
+export default TodoList
