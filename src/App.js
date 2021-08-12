@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import TodoTemplate from "components/TodoTemplate";
+import React, { Component } from 'react'
+import TodoTemplate from 'components/TodoTemplate'
 
-class App extends Component {
-  
-  render() {
-    return <TodoTemplate />;
-  }
+const App = () => {
+    return (
+        <ThemeProvider theme={theme}>
+            <TodoTemplate />
+        </ThemeProvider>
+    )
 }
 
-export default App;
+export default App
