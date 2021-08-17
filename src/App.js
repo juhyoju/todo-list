@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import TodoTemplate from 'components/TodoTemplate'
+import ThemeProvider from 'theme/themeProvider'
+import { GlobalStyle } from 'theme/GlobalStyles'
 
 const App = () => {
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider>
             <TodoTemplate />
         </ThemeProvider>
     )

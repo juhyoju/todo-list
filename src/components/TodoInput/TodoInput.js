@@ -1,5 +1,4 @@
 import React from 'react'
-import 'style/TodoInput.css'
 import useTodoInput from './useTodoInput'
 
 const TodoInput = ({ setTodos, todos }) => {

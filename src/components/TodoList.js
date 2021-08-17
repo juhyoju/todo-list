@@ -1,5 +1,4 @@
 import React from 'react'
-import 'style/TodoList.css'
 import TodoItem from './TodoItem/TodoItem'
 
 const TodoList = ({ moveCard, todos, setTodos }) => {

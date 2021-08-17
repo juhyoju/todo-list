@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useRef } from 'react'
-import 'style/TodoTemplate.css'
 import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList'
+import ThemeToggle from 'theme/ThemeToggle'
+import { useTheme } from 'theme/themeProvider'
 
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from './dnd'
@@ -81,6 +82,9 @@ const TodoTemplate = id => {
     })
 
     drag(drop(ref)) // (*)
+
+    const [ThemeMode, toggleTheme] = useTheme()
+
     return (
         <main className='todo_template'>
             <h1 className='title'>
@@ -97,6 +101,9 @@ const TodoTemplate = id => {
                     setTodos={setTodos}
                 />
             </div>
+            <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
+                DarkMode
+            </ThemeToggle>
         </main>
     )
 }
