@@ -3,7 +3,7 @@ import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'
-import { TodoWrap } from '../style/todoWrapStyle'
+import styled from 'styled-components'
 
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from './dnd'
@@ -15,10 +15,11 @@ const TodoTemplate = id => {
     const [todos, setTodos] = useState(JSON.parse(onGetTodo) ?? [])
 
     const Today = new Date()
-    const DateString = Today.toLocaleDateString('ko-KR', {
-        year: 'numeric',
+    const DateString = Today.toLocaleDateString('en-US', {
         month: 'long',
-        day: 'numeric',
+        day: 'numeric'
+    })
+    const DateName = Today.toLocaleDateString('en-US', {
         weekday: 'long'
     })
 
@@ -88,28 +89,51 @@ const TodoTemplate = id => {
 
     return (
         <TodoWrap>
-            <header>
-                <h1 className='title'>
-                    TASKS <strong>LIST</strong>
-                </h1>
-                <p style={{ textAlign: 'center' }}>{DateString}</p>
-            </header>
-            <article className='todo_template'>
-                <TodoInput todos={todos} setTodos={setTodos} />
+            <div style={{ width: '85%', maxWidth: '1000px' }}>
+                <header>
+                    <DateNameStyle>
+                        {DateString}
+                        <span>{DateName}</span>
+                    </DateNameStyle>
+                </header>
 
-                <TodoList
-                    todos={todos}
-                    moveCard={moveCard}
-                    setTodos={setTodos}
-                />
+                <article>
+                    <TodoInput todos={todos} setTodos={setTodos} />
 
-                <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
-                    DarkMode
-                </ThemeToggle>
-            </article>
-            <footer>&copy; {new Date().getFullYear()} TodoList</footer>
+                    <TodoList
+                        todos={todos}
+                        moveCard={moveCard}
+                        setTodos={setTodos}
+                    />
+
+                    <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
+                        DarkMode
+                    </ThemeToggle>
+                </article>
+                <footer>&copy; {new Date().getFullYear()} TodoList</footer>
+            </div>
         </TodoWrap>
     )
 }
 
 export default TodoTemplate
+const TodoWrap = styled.div`
+    background: ${({ theme }) => theme.bgColor};
+    color: ${({ theme }) => theme.textColor};
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+`
+
+const DateNameStyle = styled.h2`
+    text-align: center;
+
+    & span {
+        font-size: 0.7em;
+        font-weight: 300;
+        color: #e6b74a;
+        display: block;
+    }
+`
