@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react'
 import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList'
+import DateString from './DateString'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'
 import styled from 'styled-components'
@@ -13,15 +14,6 @@ const TodoTemplate = id => {
     // 가져오기
     const onGetTodo = window.localStorage.getItem('todoArray')
     const [todos, setTodos] = useState(JSON.parse(onGetTodo) ?? [])
-
-    const Today = new Date()
-    const DateString = Today.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric'
-    })
-    const DateName = Today.toLocaleDateString('en-US', {
-        weekday: 'long'
-    })
 
     const moveCard = useCallback(
         // (**) Reorder an array
@@ -91,10 +83,7 @@ const TodoTemplate = id => {
         <TodoWrap>
             <div style={{ width: '85%', maxWidth: '1000px' }}>
                 <header>
-                    <DateNameStyle>
-                        {DateString}
-                        <span>{DateName}</span>
-                    </DateNameStyle>
+                    <DateString />
                 </header>
 
                 <article>
@@ -125,15 +114,4 @@ const TodoWrap = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 25px;
-`
-
-const DateNameStyle = styled.h2`
-    text-align: center;
-
-    & span {
-        font-size: 0.7em;
-        font-weight: 300;
-        color: #e6b74a;
-        display: block;
-    }
 `
