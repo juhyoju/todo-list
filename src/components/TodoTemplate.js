@@ -3,7 +3,7 @@ import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'
-import styled from 'styled-components'
+import { TodoWrap } from '../style/todoWrapStyle'
 
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from './dnd'
@@ -113,9 +113,3 @@ const TodoTemplate = id => {
 }
 
 export default TodoTemplate
-
-const TodoWrap = styled.div`
-    background: ${({ theme }) => theme.bgColor};
-    color: ${({ theme }) => theme.textColor};
-    height: 100vh;
-`
