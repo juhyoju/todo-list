@@ -3,6 +3,7 @@ import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'
+import styled from 'styled-components'
 
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from './dnd'
@@ -86,26 +87,35 @@ const TodoTemplate = id => {
     const [ThemeMode, toggleTheme] = useTheme()
 
     return (
-        <main className='todo_template'>
-            <h1 className='title'>
-                TASKS <strong>LIST</strong>
-            </h1>
-            <p style={{ textAlign: 'center' }}>{DateString}</p>
-            <div className='form_wrap'>
+        <TodoWrap>
+            <header>
+                <h1 className='title'>
+                    TASKS <strong>LIST</strong>
+                </h1>
+                <p style={{ textAlign: 'center' }}>{DateString}</p>
+            </header>
+            <article className='todo_template'>
                 <TodoInput todos={todos} setTodos={setTodos} />
-            </div>
-            <div className='todo_wrap'>
+
                 <TodoList
                     todos={todos}
                     moveCard={moveCard}
                     setTodos={setTodos}
                 />
-            </div>
-            <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
-                DarkMode
-            </ThemeToggle>
-        </main>
+
+                <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
+                    DarkMode
+                </ThemeToggle>
+            </article>
+            <footer>&copy; {new Date().getFullYear()} TodoList</footer>
+        </TodoWrap>
     )
 }
 
 export default TodoTemplate
+
+const TodoWrap = styled.div`
+    background: ${({ theme }) => theme.bgColor};
+    color: ${({ theme }) => theme.textColor};
+    height: 100vh;
+`
