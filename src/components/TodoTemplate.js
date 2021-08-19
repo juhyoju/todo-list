@@ -109,7 +109,7 @@ export default TodoTemplate
 const TodoWrap = styled.div`
     background: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
