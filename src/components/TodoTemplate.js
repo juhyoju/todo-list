@@ -86,7 +86,7 @@ const TodoTemplate = id => {
                     <DateString />
                 </header>
 
-                <article>
+                <article style={{ marginBottom: '50px' }}>
                     <TodoInput todos={todos} setTodos={setTodos} />
 
                     <TodoList
@@ -99,7 +99,9 @@ const TodoTemplate = id => {
                         DarkMode
                     </ThemeToggle>
                 </article>
-                <footer>&copy; {new Date().getFullYear()} TodoList</footer>
+                <TodoFooter>
+                    &copy; {new Date().getFullYear()} TodoList
+                </TodoFooter>
             </div>
         </TodoWrap>
     )
@@ -114,4 +116,13 @@ const TodoWrap = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 25px;
+    position: relative;
+`
+const TodoFooter = styled.div`
+    font-size: 13px;
+    color: #888;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -50px;
 `
