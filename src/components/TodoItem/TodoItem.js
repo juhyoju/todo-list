@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { TodoList, TodoText } from './TodoItemStyle'
+import { TodoList, TodoText, TodoAction } from './TodoItemStyle'
 
 import useTodoItem from './useTodoItem'
 
@@ -24,13 +24,13 @@ const TodoItem = ({
             <TodoText isDone={isDone}>{todo}</TodoText>
 
             <span>
-                <button>
+                <TodoAction>
                     <FontAwesomeIcon icon={faEdit} />
-                </button>
+                </TodoAction>
 
-                <button onClick={() => onDeleteTodoItem(id)}>
+                <TodoAction onClick={() => onDeleteTodoItem(id)}>
                     <FontAwesomeIcon icon={faTimes} />
-                </button>
+                </TodoAction>
             </span>
         </TodoList>
     )

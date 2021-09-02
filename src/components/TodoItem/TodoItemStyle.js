@@ -18,3 +18,7 @@ export const TodoText = styled.p`
     text-decoration: ${props => (props.isDone ? 'line-through' : 'normal')};
     color: ${props => (props.isDone ? '#aaa' : '#222')};
 `
+
+export const TodoAction = styled.button`
+    color: ${({ theme }) => theme.textColor};
+`
