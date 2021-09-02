@@ -16,7 +16,7 @@ export const TodoText = styled.p`
     white-space: nowrap;
     text-overflow: ellipsis;
     text-decoration: ${props => (props.isDone ? 'line-through' : 'normal')};
-    color: ${props => (props.isDone ? '#aaa' : '#222')};
+    color: ${({ theme }) => theme.textColor};
 `
 
 export const TodoAction = styled.button`
