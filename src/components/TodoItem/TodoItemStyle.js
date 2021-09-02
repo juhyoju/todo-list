@@ -5,7 +5,8 @@ export const TodoList = styled.li`
     padding: 25px;
     box-shadow: 3px 3px 0 #eee;
     margin-bottom: 15px;
-    background: ${props => (props.isDone ? '#eee' : '#fff')};
+    background: ${({ theme }) => theme.todoBg};
+    opacity: ${props => (props.isDone ? '0.4' : '1')};
     display: flex;
 `
 
