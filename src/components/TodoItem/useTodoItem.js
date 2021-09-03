@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const useTodoItem = (todos, setTodos) => {
+    const [editTodo, setEditTodo] = useState(false)
+
+    const onEditTodo = () => {
+        setEditTodo(true)
+    }
+
     const onIsDoneItem = id => {
         const onIsDoneTodo = todos.map(todos =>
             todos.id === id ? { ...todos, isDone: !todos.isDone } : todos
@@ -22,6 +28,6 @@ const useTodoItem = (todos, setTodos) => {
         }
     }
 
-    return { onIsDoneItem, onDeleteTodoItem }
+    return { onIsDoneItem, onDeleteTodoItem, onEditTodo, editTodo }
 }
 export default useTodoItem

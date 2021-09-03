@@ -12,7 +12,8 @@ const TodoItem = ({
     setTodos,
     todos
 }) => {
-    const { onIsDoneItem, onDeleteTodoItem } = useTodoItem(todos, setTodos)
+    const { onIsDoneItem, onDeleteTodoItem, onEditTodo, editTodo } =
+        useTodoItem(todos, setTodos)
 
     return (
         <TodoList isDone={isDone} ref={ref} isDragging={isDragging}>
@@ -24,9 +25,13 @@ const TodoItem = ({
             <TodoText isDone={isDone}>{todo}</TodoText>
 
             <span>
-                <TodoAction>
-                    <FontAwesomeIcon icon={faEdit} />
-                </TodoAction>
+                {editTodo ? (
+                    <TodoAction>✅</TodoAction>
+                ) : (
+                    <TodoAction>
+                        <FontAwesomeIcon icon={faEdit} onClick={onEditTodo} />
+                    </TodoAction>
+                )}
 
                 <TodoAction onClick={() => onDeleteTodoItem(id)}>
                     <FontAwesomeIcon icon={faTimes} />
