@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TodoTemplate from 'components/TodoTemplate'
 import ThemeProvider from 'theme/themeProvider'
 
