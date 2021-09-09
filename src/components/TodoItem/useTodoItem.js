@@ -18,7 +18,7 @@ const useTodoItem = (todos, setTodos, todo) => {
         // }))
         // setTodos(nextTodoList)
         // window.localStorage.setItem('todoArray', JSON.stringify(nextTodoList))
-        // setEditTodo(false)
+        setEditTodo(false)
     }
 
     const onIsDoneItem = id => {

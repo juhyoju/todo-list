@@ -18,7 +18,9 @@ export const TodoText = styled.p`
     text-decoration: ${props => (props.isDone ? 'line-through' : 'normal')};
     color: ${({ theme }) => theme.textColor};
 `
-
+export const TodoEditInput = styled.input`
+    flex: 2 1 0%;
+`
 export const TodoAction = styled.button`
     color: ${({ theme }) => theme.textColor};
 `
