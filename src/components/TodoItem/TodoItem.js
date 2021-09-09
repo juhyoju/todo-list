@@ -5,13 +5,7 @@ import { TodoList, TodoText, TodoAction } from './TodoItemStyle'
 
 import useTodoItem from './useTodoItem'
 
-const TodoItem = ({
-    ref,
-    isDragging,
-    todo: { id, todo, isDone },
-    setTodos,
-    todos
-}) => {
+const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
     const {
         onIsDoneItem,
         onDeleteTodoItem,
@@ -23,7 +17,7 @@ const TodoItem = ({
     } = useTodoItem(todos, setTodos, todo)
 
     return (
-        <TodoList isDone={isDone} ref={ref} isDragging={isDragging}>
+        <TodoList isDone={isDone}>
             <input
                 type='checkbox'
                 checked={isDone}
@@ -41,7 +35,9 @@ const TodoItem = ({
 
             <span>
                 {editTodo ? (
-                    <TodoAction onClick={onClickSubmitButton}>✅</TodoAction>
+                    <TodoAction onClick={() => onClickSubmitButton(id)}>
+                        ✅
+                    </TodoAction>
                 ) : (
                     <>
                         <TodoAction>

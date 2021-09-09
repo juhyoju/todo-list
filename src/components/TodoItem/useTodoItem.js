@@ -1,6 +1,6 @@
-import useState from 'react'
+import React, { useState } from 'react'
 
-const useTodoItem = ({ todos, setTodos, todo }) => {
+const useTodoItem = (todos, setTodos, todo) => {
     const [editTodo, setEditTodo] = useState(false)
     const [newText, setNewText] = useState(todo)
 
@@ -11,15 +11,14 @@ const useTodoItem = ({ todos, setTodos, todo }) => {
     const onChangeEditInput = event => {
         setNewText(event.target.value)
     }
-
-    const onClickSubmitButton = ({ id }) => {
-        const nextTodoList = todos.map(todos => ({
-            ...todos,
-            text: todo.id === id ? newText : todos.todo
-        }))
-        setTodos(nextTodoList)
-        window.localStorage.setItem('todoArray', JSON.stringify(nextTodoList))
-        setEditTodo(false)
+    const onClickSubmitButton = id => {
+        // const nextTodoList = todos.map(todos => ({
+        //     ...todos,
+        //     todo: todo.id === id ? newText : todos.todo
+        // }))
+        // setTodos(nextTodoList)
+        // window.localStorage.setItem('todoArray', JSON.stringify(nextTodoList))
+        // setEditTodo(false)
     }
 
     const onIsDoneItem = id => {

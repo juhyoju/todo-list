@@ -1,7 +1,7 @@
 import React from 'react'
 import TodoItem from './TodoItem/TodoItem'
 
-const TodoList = ({ moveCard, todos, setTodos }) => {
+const TodoList = ({ todos, setTodos }) => {
     return (
         <div className='todoList'>
             <ul>
@@ -10,7 +10,6 @@ const TodoList = ({ moveCard, todos, setTodos }) => {
                         todos={todos}
                         todo={todo}
                         key={todos.id}
-                        moveCard={moveCard}
                         setTodos={setTodos}
                     />
                 ))}
