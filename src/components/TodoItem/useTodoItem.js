@@ -11,13 +11,13 @@ const useTodoItem = (todos, setTodos, todo) => {
     const onChangeEditInput = event => {
         setNewText(event.target.value)
     }
+
     const onClickSubmitButton = id => {
-        // const nextTodoList = todos.map(todos => ({
-        //     ...todos,
-        //     todo: todo.id === id ? newText : todos.todo
-        // }))
-        // setTodos(nextTodoList)
-        // window.localStorage.setItem('todoArray', JSON.stringify(nextTodoList))
+        const nextTodoList = todos.map(todos =>
+            todos.id === id ? { ...todos, todo: newText } : todos
+        )
+        setTodos(nextTodoList)
+        window.localStorage.setItem('todoArray', JSON.stringify(nextTodoList))
         setEditTodo(false)
     }
 
