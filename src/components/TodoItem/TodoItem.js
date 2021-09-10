@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { TodoList, TodoText, TodoAction, TodoEditInput } from './TodoItemStyle'
 
 import useTodoItem from './useTodoItem'
@@ -35,8 +35,11 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
 
             <span>
                 {editTodo ? (
-                    <TodoAction onClick={() => onClickSubmitButton(id)}>
-                        ✅
+                    <TodoAction>
+                        <FontAwesomeIcon
+                            icon={faCheck}
+                            onClick={() => onClickSubmitButton(id)}
+                        />
                     </TodoAction>
                 ) : (
                     <TodoAction>

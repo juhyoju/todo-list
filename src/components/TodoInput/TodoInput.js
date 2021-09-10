@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
 import useTodoInput from './useTodoInput'
 import {
     TodoInputWrap,
@@ -20,7 +23,9 @@ const TodoInput = ({ setTodos, todos }) => {
                     placeholder='오늘의 할 일을 입력하세요'
                     onKeyPress={onKeyPress}
                 />
-                <TodoSaveButton onClick={onAddTodo}>+</TodoSaveButton>
+                <TodoSaveButton>
+                    <FontAwesomeIcon icon={faPlusCircle} onClick={onAddTodo} />
+                </TodoSaveButton>
             </TodoInputWrap>
 
             <TodoAllDeleteButton onClick={onDeleteAll}>
