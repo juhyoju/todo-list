@@ -9,19 +9,18 @@ export const TodoInputWrap = styled.div`
 export const TodoInputBox = styled.input`
     border: none;
     outline: none;
-    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.15),
-        0 2px 4px rgba(100, 100, 100, 0.15);
+    color: #e6b74a;
     padding: 5px 10px;
     height: 50px;
     width: calc(100% - 50px);
+    background: transparent;
+    border-bottom: 1px solid #e6b74a;
+    font-size: 17px;
 `
 
 export const TodoSaveButton = styled.button`
     font-size: 21px;
     width: 50px;
-    color: #fff;
-    background: #bbb;
-    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.15),
-        0 2px 4px rgba(100, 100, 100, 0.15);
+    color: #e6b74a;
 `
 export const TodoAllDeleteButton = styled.button``
