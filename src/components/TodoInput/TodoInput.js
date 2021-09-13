@@ -23,8 +23,8 @@ const TodoInput = ({ setTodos, todos }) => {
                     placeholder='오늘의 할 일을 입력하세요'
                     onKeyPress={onKeyPress}
                 />
-                <TodoSaveButton>
-                    <FontAwesomeIcon icon={faPlusCircle} onClick={onAddTodo} />
+                <TodoSaveButton onClick={onAddTodo}>
+                    <FontAwesomeIcon icon={faPlusCircle} />
                 </TodoSaveButton>
             </TodoInputWrap>
 
