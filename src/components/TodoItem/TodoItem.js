@@ -34,18 +34,23 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
             )}
 
             <span>
-                {editTodo ? (
-                    <TodoAction>
-                        <FontAwesomeIcon
-                            icon={faCheck}
-                            onClick={() => onClickSubmitButton(id)}
-                        />
-                    </TodoAction>
-                ) : (
-                    <TodoAction>
-                        <FontAwesomeIcon icon={faEdit} onClick={onEditTodo} />
-                    </TodoAction>
-                )}
+                {!isDone ? (
+                    editTodo ? (
+                        <TodoAction>
+                            <FontAwesomeIcon
+                                icon={faCheck}
+                                onClick={() => onClickSubmitButton(id)}
+                            />
+                        </TodoAction>
+                    ) : (
+                        <TodoAction>
+                            <FontAwesomeIcon
+                                icon={faEdit}
+                                onClick={onEditTodo}
+                            />
+                        </TodoAction>
+                    )
+                ) : null}
                 <TodoAction onClick={() => onDeleteTodoItem(id)}>
                     <FontAwesomeIcon icon={faTimes} />
                 </TodoAction>
