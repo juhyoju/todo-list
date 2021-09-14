@@ -23,7 +23,19 @@ const TodoTemplate = id => {
                 <article style={{ marginBottom: '50px' }}>
                     <TodoInput todos={todos} setTodos={setTodos} />
 
-                    <TodoList todos={todos} setTodos={setTodos} />
+                    <TodoList
+                        title={'해야할 일'}
+                        todos={todos}
+                        setTodos={setTodos}
+                        checkedList={false}
+                    />
+
+                    <TodoList
+                        title={'완료한 일'}
+                        todos={todos}
+                        setTodos={setTodos}
+                        checkedList={true}
+                    />
 
                     <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
                         DarkMode
