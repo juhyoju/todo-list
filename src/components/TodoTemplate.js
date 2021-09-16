@@ -13,6 +13,9 @@ const TodoTemplate = id => {
 
     const [ThemeMode, toggleTheme] = useTheme()
 
+    const onDidTodo = todos.filter(todos => todos.isDone === true).length
+    const onWillTodo = todos.filter(todos => todos.isDone === false).length
+
     return (
         <TodoWrap>
             <div style={{ width: '85%', maxWidth: '1000px' }}>
@@ -25,6 +28,7 @@ const TodoTemplate = id => {
 
                     <TodoList
                         title={'해야할 일'}
+                        onWillTodo={onWillTodo}
                         todos={todos}
                         setTodos={setTodos}
                         checkedList={false}
@@ -32,6 +36,7 @@ const TodoTemplate = id => {
 
                     <TodoList
                         title={'완료한 일'}
+                        onDidTodo={onDidTodo}
                         todos={todos}
                         setTodos={setTodos}
                         checkedList={true}
