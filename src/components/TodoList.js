@@ -12,7 +12,7 @@ const TodoList = ({ todos, setTodos, title, checkedList }) => {
             <TodoTitle>{title}</TodoTitle>
 
             {onTodoNumber === 0 ? (
-                <p>{title}이 없습니다.</p>
+                <TodoNull>{title}이 없습니다.</TodoNull>
             ) : (
                 <ul>
                     {todos.map(todo => {
@@ -37,4 +37,10 @@ export default TodoList
 const TodoTitle = styled.p`
     margin: 50px 0 15px;
     font-weight: bold;
+`
+
+const TodoNull = styled.div`
+    color: #aaa;
+    font-size: 14px;
+    padding: 10px;
 `
