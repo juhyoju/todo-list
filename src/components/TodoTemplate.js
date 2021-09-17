@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import TodoInput from './TodoInput/TodoInput'
-import TodoList from './TodoList'
+import TodoList from './TodoList/TodoList'
 import DateString from './DateString'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'

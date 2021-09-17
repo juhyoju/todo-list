@@ -1,12 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-import TodoItem from './TodoItem/TodoItem'
+
+import TodoItem from '../TodoItem/TodoItem'
+import { TodoTitle, TodoNull } from './TodoListStyle'
+import useTodoList from './useTodoList'
 
 const TodoList = ({ todos, setTodos, title, checkedList }) => {
-    const onTodoNumber = todos.filter(
-        todos => todos.isDone === checkedList
-    ).length
-
+    const { onTodoNumber } = useTodoList(todos, checkedList)
     return (
         <div className='todoList'>
             <TodoTitle>{title}</TodoTitle>
@@ -33,14 +32,3 @@ const TodoList = ({ todos, setTodos, title, checkedList }) => {
 }
 
 export default TodoList
-
-const TodoTitle = styled.p`
-    margin: 50px 0 15px;
-    font-weight: bold;
-`
-
-const TodoNull = styled.div`
-    color: #aaa;
-    font-size: 14px;
-    padding: 10px;
-`
