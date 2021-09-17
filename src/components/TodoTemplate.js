@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TodoInput from './TodoInput/TodoInput'
 import TodoList from './TodoList/TodoList'
-import DateString from './DateString'
+import DateString from './DateString/DateString'
 import ThemeToggle from 'theme/ThemeToggle'
 import { useTheme } from 'theme/themeProvider'
 import styled from 'styled-components'
