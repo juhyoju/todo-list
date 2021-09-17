@@ -18,7 +18,9 @@ const ToggleWrapper = styled.button`
     right: 3%;
 
     background-color: ${props => props.theme.bgColor};
-    border: ${props => props.theme.borderColor};
+    border-color: ${props => props.theme.borderColor};
+    border-style: solid;
+    border-width: 1px;
     font-size: 20px;
 
     display: flex;

@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const TodoList = styled.li`
-    border: 1px solid #ddd;
+    border: 1px solid ${props => props.theme.borderColor};
     padding: 25px;
-    box-shadow: 3px 3px 0 #eee;
     margin-bottom: 15px;
     background: ${({ theme }) => theme.todoBg};
     opacity: ${props => (props.isDone ? '0.4' : '1')};
@@ -20,6 +19,9 @@ export const TodoText = styled.p`
 `
 export const TodoEditInput = styled.input`
     flex: 2 1 0%;
+    background: transparent;
+    font-size: 17px;
+    font-family: 'NanumSquareRound', 'Noto Sans', 'Noto Sans CJK KR', sans-serif;
 `
 export const TodoAction = styled.button`
     color: ${({ theme }) => theme.textColor};

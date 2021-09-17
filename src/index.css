@@ -146,6 +146,7 @@ input {
     background-color: none;
     outline: none;
     transition: all 0.1s linear;
+    border: none;
 }
 
 input::-webkit-outer-spin-button,

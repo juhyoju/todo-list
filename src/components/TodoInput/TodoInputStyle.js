@@ -7,8 +7,6 @@ export const TodoInputWrap = styled.div`
 `
 
 export const TodoInputBox = styled.input`
-    border: none;
-    outline: none;
     color: #e6b74a;
     padding: 5px 10px;
     height: 50px;
@@ -23,4 +21,6 @@ export const TodoSaveButton = styled.button`
     width: 50px;
     color: #e6b74a;
 `
-export const TodoAllDeleteButton = styled.button``
+export const TodoAllDeleteButton = styled.button`
+    color: ${({ theme }) => theme.textColor};
+`
