@@ -36,18 +36,12 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
             <span>
                 {!isDone ? (
                     editTodo ? (
-                        <TodoAction>
-                            <FontAwesomeIcon
-                                icon={faCheck}
-                                onClick={() => onClickSubmitButton(id)}
-                            />
+                        <TodoAction onClick={() => onClickSubmitButton(id)}>
+                            <FontAwesomeIcon icon={faCheck} />
                         </TodoAction>
                     ) : (
-                        <TodoAction>
-                            <FontAwesomeIcon
-                                icon={faEdit}
-                                onClick={onEditTodo}
-                            />
+                        <TodoAction onClick={onEditTodo}>
+                            <FontAwesomeIcon icon={faEdit} />
                         </TodoAction>
                     )
                 ) : null}
