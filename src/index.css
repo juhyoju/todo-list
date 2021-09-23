@@ -147,6 +147,8 @@ input {
     outline: none;
     transition: all 0.1s linear;
     border: none;
+    padding: 0;
+    font-family: 'NanumSquareRound', 'Noto Sans', 'Noto Sans CJK KR', sans-serif;
 }
 
 input::-webkit-outer-spin-button,
@@ -181,8 +183,9 @@ select {
 /* PLACEHOLDER */
 
 input::placeholder {
-    color: #757575;
+    color: #e6b74a;
     font-size: 14px;
+    opacity: 0.8;
 }
 
 textarea::placeholder {
