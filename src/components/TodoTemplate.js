@@ -28,6 +28,7 @@ const TodoTemplate = id => {
                         todos={todos}
                         setTodos={setTodos}
                         checkedList={false}
+                        mode={ThemeMode}
                     />
 
                     <TodoList

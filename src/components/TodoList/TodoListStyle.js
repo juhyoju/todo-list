@@ -6,7 +6,7 @@ export const TodoTitle = styled.p`
 `
 
 export const TodoNull = styled.div`
-    color: #aaa;
+    color: ${props => (props.mode === 'dark' ? '#666' : '#aaa')};
     font-size: 14px;
     padding: 10px;
 `
