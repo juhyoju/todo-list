@@ -36,6 +36,7 @@ const TodoTemplate = id => {
                         todos={todos}
                         setTodos={setTodos}
                         checkedList={true}
+                        mode={ThemeMode}
                     />
 
                     <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
