@@ -11,7 +11,11 @@ const TodoList = ({ todos, setTodos, title, checkedList, mode }) => {
             <TodoTitle>{title}</TodoTitle>
 
             {onTodoNumber === 0 ? (
-                <TodoNull mode={mode}>{title}이 없습니다.</TodoNull>
+                checkedList === true ? (
+                    <TodoNull mode={mode}>{title}이 없습니다.</TodoNull>
+                ) : (
+                    <TodoNull mode={mode}>{title}을 입력해 주세요.</TodoNull>
+                )
             ) : (
                 <ul>
                     {todos.map(todo => {
