@@ -10,3 +10,8 @@ export const TodoNull = styled.div`
     font-size: 14px;
     padding: 10px;
 `
+
+export const TodoAllDeleteButton = styled.button`
+    color: ${({ theme }) => theme.textColor};
+    font-size: 14px;
+`

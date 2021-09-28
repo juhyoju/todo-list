@@ -19,7 +19,7 @@ const useTodoInput = (todos, setTodos) => {
 
     const onAddTodo = () => {
         if (newTodo === '') {
-            alert('⚠ 내용이 입력되지 않았습니다.')
+            alert('⚠ 내용을 입력하세요.')
             return
         }
         const todoAll = [
@@ -31,16 +31,7 @@ const useTodoInput = (todos, setTodos) => {
         onSaveTodo(todoAll)
     }
 
-    const onDeleteAll = () => {
-        const deleteMsg = window.confirm('Todo 항목을 모두 삭제하십니까?')
-
-        if (deleteMsg) {
-            window.localStorage.clear('todoArray')
-            setTodos([])
-        }
-    }
-
-    return { onChange, onKeyPress, onAddTodo, onDeleteAll, newTodo }
+    return { onChange, onKeyPress, onAddTodo, newTodo }
 }
 
 export default useTodoInput

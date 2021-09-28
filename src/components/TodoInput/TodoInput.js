@@ -3,12 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 import useTodoInput from './useTodoInput'
-import {
-    TodoInputWrap,
-    TodoInputBox,
-    TodoSaveButton,
-    TodoAllDeleteButton
-} from './TodoInputStyle'
+import { TodoInputWrap, TodoInputBox, TodoSaveButton } from './TodoInputStyle'
 
 const TodoInput = ({ setTodos, todos }) => {
     const { onChange, onAddTodo, onKeyPress, onDeleteAll, newTodo } =
@@ -27,10 +22,6 @@ const TodoInput = ({ setTodos, todos }) => {
                     <FontAwesomeIcon icon={faPlusCircle} />
                 </TodoSaveButton>
             </TodoInputWrap>
-
-            <TodoAllDeleteButton onClick={onDeleteAll}>
-                전체 삭제
-            </TodoAllDeleteButton>
         </>
     )
 }

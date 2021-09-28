@@ -1,14 +1,29 @@
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
 import TodoItem from '../TodoItem/TodoItem'
-import { TodoTitle, TodoNull } from './TodoListStyle'
+import { TodoTitle, TodoNull, TodoAllDeleteButton } from './TodoListStyle'
 import useTodoList from './useTodoList'
 
 const TodoList = ({ todos, setTodos, title, checkedList, mode }) => {
-    const { onTodoNumber } = useTodoList(todos, checkedList)
+    const { onTodoNumber, onDeleteAll } = useTodoList(
+        todos,
+        checkedList,
+        setTodos,
+        title
+    )
     return (
         <div className='todoList'>
-            <TodoTitle>{title}</TodoTitle>
+            <TodoTitle>
+                {title}
+                {onTodoNumber === 0 ? null : (
+                    <TodoAllDeleteButton onClick={onDeleteAll} title='삭제'>
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                    </TodoAllDeleteButton>
+                )}
+            </TodoTitle>
 
             {onTodoNumber === 0 ? (
                 checkedList === true ? (

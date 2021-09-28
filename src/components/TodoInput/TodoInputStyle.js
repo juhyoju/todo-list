@@ -21,6 +21,3 @@ export const TodoSaveButton = styled.button`
     width: 50px;
     color: #e6b74a;
 `
-export const TodoAllDeleteButton = styled.button`
-    color: ${({ theme }) => theme.textColor};
-`
