@@ -11,8 +11,7 @@ const TodoList = ({ todos, setTodos, title, checkedList, mode }) => {
     const { onTodoNumber, onDeleteAll } = useTodoList(
         todos,
         checkedList,
-        setTodos,
-        title
+        setTodos
     )
     return (
         <div className='todoList'>
