@@ -22,6 +22,8 @@ export const TodoEditInput = styled.input`
     background: transparent;
     font-size: 17px;
     font-family: 'NanumSquareRound', 'Noto Sans', 'Noto Sans CJK KR', sans-serif;
+    color: ${({ theme }) => theme.textColor};
+    border-bottom: 1px solid ${props => props.theme.borderColor};
 `
 export const TodoAction = styled.button`
     color: ${({ theme }) => theme.textColor};

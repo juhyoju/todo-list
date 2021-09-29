@@ -5,7 +5,7 @@ import { TodoList, TodoText, TodoAction, TodoEditInput } from './TodoItemStyle'
 
 import useTodoItem from './useTodoItem'
 
-const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
+const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos, mode }) => {
     const {
         onIsDoneItem,
         onDeleteTodoItem,
@@ -28,6 +28,7 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
                     type='text'
                     value={newText}
                     onChange={onChangeEditInput}
+                    mode={mode}
                 />
             ) : (
                 <TodoText isDone={isDone}>{todo}</TodoText>
@@ -37,7 +38,10 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos }) => {
                 {!isDone ? (
                     editTodo ? (
                         <TodoAction onClick={() => onClickSubmitButton(id)}>
-                            <FontAwesomeIcon icon={faCheck} />
+                            <FontAwesomeIcon
+                                icon={faCheck}
+                                style={{ color: '#e64a58' }}
+                            />
                         </TodoAction>
                     ) : (
                         <TodoAction onClick={onEditTodo}>

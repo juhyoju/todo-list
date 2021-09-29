@@ -15,10 +15,14 @@ const TodoList = ({ todos, setTodos, title, checkedList, mode }) => {
     )
     return (
         <div className='todoList'>
-            <TodoTitle>
+            <TodoTitle isDone={checkedList}>
                 {title}
                 {onTodoNumber === 0 ? null : (
-                    <TodoAllDeleteButton onClick={onDeleteAll} title='삭제'>
+                    <TodoAllDeleteButton
+                        onClick={onDeleteAll}
+                        title='삭제'
+                        isDone={checkedList}
+                    >
                         <FontAwesomeIcon icon={faTrashAlt} />
                     </TodoAllDeleteButton>
                 )}

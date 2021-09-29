@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const TodoTitle = styled.p`
     margin: 50px 0 15px;
     font-weight: bold;
+    opacity: ${props => (props.isDone ? '0.6' : '1')};
+    color: ${({ theme }) => theme.textColor};
 `
 
 export const TodoNull = styled.div`
