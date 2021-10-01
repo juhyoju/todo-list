@@ -29,6 +29,7 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos, mode }) => {
                     value={newText}
                     onChange={onChangeEditInput}
                     mode={mode}
+                    autoFocus='autoFocus'
                 />
             ) : (
                 <TodoText isDone={isDone}>{todo}</TodoText>

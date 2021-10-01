@@ -15,7 +15,7 @@ const TodoTemplate = id => {
 
     return (
         <TodoWrap>
-            <div style={{ width: '85%', maxWidth: '1000px' }}>
+            <div style={{ width: '100%', maxWidth: '1000px' }}>
                 <header>
                     <DateString />
                 </header>
