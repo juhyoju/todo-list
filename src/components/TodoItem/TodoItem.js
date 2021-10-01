@@ -13,7 +13,8 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos, mode }) => {
         editTodo,
         onChangeEditInput,
         onClickSubmitButton,
-        newText
+        newText,
+        editInputRef
     } = useTodoItem(todos, setTodos, todo)
 
     return (
@@ -29,7 +30,8 @@ const TodoItem = ({ todo: { id, todo, isDone }, setTodos, todos, mode }) => {
                     value={newText}
                     onChange={onChangeEditInput}
                     mode={mode}
-                    autoFocus='autoFocus'
+                    //autoFocus='autoFocus'
+                    ref={editInputRef}
                 />
             ) : (
                 <TodoText isDone={isDone}>{todo}</TodoText>

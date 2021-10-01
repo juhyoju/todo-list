@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const useTodoItem = (todos, setTodos, todo) => {
     const [editTodo, setEditTodo] = useState(false)
@@ -42,6 +42,14 @@ const useTodoItem = (todos, setTodos, todo) => {
         }
     }
 
+    const editInputRef = useRef(null)
+
+    useEffect(() => {
+        if (editTodo) {
+            editInputRef.current.focus()
+        }
+    }, [editTodo])
+
     return {
         onIsDoneItem,
         onDeleteTodoItem,
@@ -49,7 +57,8 @@ const useTodoItem = (todos, setTodos, todo) => {
         editTodo,
         onChangeEditInput,
         onClickSubmitButton,
-        newText
+        newText,
+        editInputRef
     }
 }
 export default useTodoItem
