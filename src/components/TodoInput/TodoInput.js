@@ -6,8 +6,10 @@ import useTodoInput from './useTodoInput'
 import { TodoInputWrap, TodoInputBox, TodoSaveButton } from './TodoInputStyle'
 
 const TodoInput = ({ setTodos, todos }) => {
-    const { onChange, onAddTodo, onKeyPress, onDeleteAll, newTodo } =
-        useTodoInput(todos, setTodos)
+    const { onChange, onAddTodo, onKeyPress, newTodo } = useTodoInput(
+        todos,
+        setTodos
+    )
     return (
         <>
             <TodoInputWrap>
